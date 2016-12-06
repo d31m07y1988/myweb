@@ -17,10 +17,12 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="web application context" name="MVC application context" removed="true" />
-        <fileset id="web mvc-dispatcher servlet context" name="MVC mvc-dispatcher servlet context" removed="true" />
+        <fileset id="web mvc-dispatcher servlet context" name="MVC mvc-dispatcher servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/mvc-dispatcher-servlet.xml</file>
+        </fileset>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/mvc-dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-security.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -45,10 +47,13 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.3.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars:bootstrap:3.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:bootstrap:3.3.7-1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery:1.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />

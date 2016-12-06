@@ -15,7 +15,9 @@
         <tomcat.version>8.5.8</tomcat.version>
         <spring.version>4.3.1.RELEASE</spring.version>
         <mysql.version>6.0.5</mysql.version>
-        <jsp-version>2.1</jsp-version>
+
+        <!--webjars-->
+        <webjars-bootstrap.version>3.3.7-1</webjars-bootstrap.version>
 
         <!-- Logging -->
         <logback.version>1.1.7</logback.version>
@@ -53,6 +55,13 @@
             </exclusions>
         </dependency>
 
+        <!--database connection-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -74,7 +83,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>3.2.0</version>
+            <version>${webjars-bootstrap.version}</version>
         </dependency>
 
         <!-- Logging with SLF4J & LogBack -->
