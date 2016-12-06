@@ -21,7 +21,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>id</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
@@ -30,9 +30,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${catalog}" var="catal">
+                <c:forEach items="${catalog}" var="catal" varStatus="loop">
                     <tr>
-                        <td><c:out value="${catal.id}"/></td>
+                        <td><c:out value="${loop.count}"/></td>
                         <td><c:out value="${catal.name}"/></td>
                         <td><c:out value="${catal.description}"/></td>
                         <td><c:out value="${catal.price}"/></td>
