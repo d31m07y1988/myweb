@@ -14,11 +14,14 @@
     <context:annotation-config/>
     <context:component-scan base-package="ru.itpark" />
 
+    <!-- Getting Database properties -->
+    <context:property-placeholder location="classpath:mysql.properties" />
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/myweb?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
-        <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="driverClassName" value="${database.driverClass}" />
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.username}" />
+        <property name="password" value="${database.password}" />
     </bean>
 
     <!-- serve static resources (*.html, ...) from src/main/webapp/ -->
