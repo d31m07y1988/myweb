@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 import ru.itpark.model.Item;
 import ru.itpark.repository.ItemRepository;
 
+import java.util.Collections;
 import java.util.List;
 
-@Service
+@Service("itemService")
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
@@ -15,6 +16,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> fetchAll() {
-        return itemRepository.getAll();
+        List<Item> all = itemRepository.getAll();
+        Collections.sort(all);
+        return all;
     }
 }

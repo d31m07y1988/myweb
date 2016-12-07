@@ -39,9 +39,7 @@ public class BaseController {
     @RequestMapping(value = "catalog.html")
     public String catalog(Model model) {
         model.addAttribute("page",pageService.get(2));
-        List<Item> items = itemService.fetchAll();
-        Collections.sort(items);
-        model.addAttribute("catalog",items);
+        model.addAttribute("catalog",itemService.fetchAll());
         return "index";
     }
 

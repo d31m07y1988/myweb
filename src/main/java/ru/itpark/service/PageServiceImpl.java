@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.itpark.model.Page;
 import ru.itpark.repository.PageRepository;
 
-@Service
+@Service("pageService")
 public class PageServiceImpl implements PageService {
 
     @Autowired

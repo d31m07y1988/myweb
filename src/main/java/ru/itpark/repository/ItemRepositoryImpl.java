@@ -1,55 +1,37 @@
 package ru.itpark.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import ru.itpark.model.Item;
-import ru.itpark.model.Page;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ramil on 06.12.2016.
  */
+@Repository("itemRepository")
 public class ItemRepositoryImpl implements ItemRepository {
 
-    private DataSource dataSource;
+    private JdbcTemplate jdbcTemplate;
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+    @Autowired
+    public void setJdbcTemplate(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
     public List<Item> getAll() {
-        String sql = "SELECT * FROM item";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try (Connection conn = dataSource.getConnection()) {
-            ps = conn.prepareStatement(sql);
-            List<Item> items= new ArrayList<>();
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                items.add(new Item(
-                        rs.getLong("id"),
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getLong("price"),
-                        rs.getString("picturelink"),
-                        rs.getInt("count")));
-            }
-            return items;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if(rs!=null)rs.close();
-                if(ps!=null)ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        return jdbcTemplate.query("SELECT * FROM item", (resultSet, i) -> {
+            Item item = new Item(
+                    resultSet.getLong("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("description"),
+                    resultSet.getLong("price"),
+                    resultSet.getString("picturelink"),
+                    resultSet.getInt("count"));
+            return item;
+        });
     }
 }

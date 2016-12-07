@@ -21,13 +21,6 @@
         <property name="password" value="root" />
     </bean>
 
-    <bean name="PageRepository" class="ru.itpark.repository.PageRepositoryImpl">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
-    <bean name="ItemRepository" class="ru.itpark.repository.ItemRepositoryImpl">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
-
     <!-- serve static resources (*.html, ...) from src/main/webapp/ -->
     <mvc:default-servlet-handler />
 
